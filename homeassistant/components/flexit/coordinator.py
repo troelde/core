@@ -45,7 +45,6 @@ class FlexitDataCoordinator(DataUpdateCoordinator[None]):
             name=self.name,
             model=self.device.info.model,
             manufacturer=self.device.info.manufacturer,
-            configuration_url=None,
         )
 
     @override
