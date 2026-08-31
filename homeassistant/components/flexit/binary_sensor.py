@@ -11,6 +11,7 @@ from homeassistant.components.binary_sensor import (
     BinarySensorEntity,
     BinarySensorEntityDescription,
 )
+from homeassistant.const import EntityCategory
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 
@@ -35,6 +36,7 @@ BINARY_SENSORS: tuple[FlexitBinarySensorEntityDescription, ...] = (
     FlexitBinarySensorEntityDescription(
         key="electric_heater_enabled",
         translation_key="electric_heater_enabled",
+        entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda measurements: measurements.electric_heater_enabled,
     ),
 )
