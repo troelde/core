@@ -12,7 +12,12 @@ from homeassistant.components.sensor import (
     SensorEntityDescription,
     SensorStateClass,
 )
-from homeassistant.const import PERCENTAGE, UnitOfTemperature, UnitOfTime
+from homeassistant.const import (
+    PERCENTAGE,
+    EntityCategory,
+    UnitOfTemperature,
+    UnitOfTime,
+)
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddConfigEntryEntitiesCallback
 from homeassistant.helpers.typing import StateType
@@ -33,6 +38,7 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
         key="air_filter_operating_time",
         translation_key="air_filter_operating_time",
         device_class=SensorDeviceClass.DURATION,
+        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTime.HOURS,
         state_class=SensorStateClass.TOTAL_INCREASING,
         suggested_display_precision=0,
@@ -41,6 +47,7 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
     FlexitSensorEntityDescription(
         key="heat_exchanger_regulation",
         translation_key="heat_exchanger_regulation",
+        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda measurements: measurements.heat_exchanger_regulation,
@@ -48,6 +55,7 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
     FlexitSensorEntityDescription(
         key="electric_heater_regulation",
         translation_key="electric_heater_regulation",
+        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda measurements: measurements.electric_heater_regulation,
@@ -55,6 +63,7 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
     FlexitSensorEntityDescription(
         key="cooling_regulation",
         translation_key="cooling_regulation",
+        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=PERCENTAGE,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda measurements: measurements.cooling_regulation,
@@ -63,6 +72,7 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
         key="outdoor_air_temperature",
         translation_key="outdoor_air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
+        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda measurements: measurements.outdoor_air_temperature,
