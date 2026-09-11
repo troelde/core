@@ -72,7 +72,6 @@ SENSORS: tuple[FlexitSensorEntityDescription, ...] = (
         key="outdoor_air_temperature",
         translation_key="outdoor_air_temperature",
         device_class=SensorDeviceClass.TEMPERATURE,
-        entity_category=EntityCategory.DIAGNOSTIC,
         native_unit_of_measurement=UnitOfTemperature.CELSIUS,
         state_class=SensorStateClass.MEASUREMENT,
         value_fn=lambda measurements: measurements.outdoor_air_temperature,
